@@ -10,7 +10,6 @@ fs.readFile('input.txt', (err, data) => {
 
     for (let i = 0; i < reports.length; i++) {
         const report = reports[i].split(' ').map(Number);
-
         if(isSafeDiff(report) && isSorted(report)){
             sum++;
         }else{
