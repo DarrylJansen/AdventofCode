@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('input.txt', (err, data) => {
+fs.readFile('testinput.txt', (err, data) => {
     if (err) {
         console.error(err);
         return;
@@ -11,6 +11,7 @@ fs.readFile('input.txt', (err, data) => {
 
     const wallSet = new Set();
     const visitedSet = new Set();
+    const infiniteSet = new Set();
 
     let guardCoords = "0,0";
 
@@ -112,6 +113,7 @@ fs.readFile('input.txt', (err, data) => {
 
             if(isLooping){
                 sum++;
+                infiniteSet.add(spot);
                 wallSet.delete(spot);
                 break;
             }
@@ -122,6 +124,7 @@ fs.readFile('input.txt', (err, data) => {
     console.timeEnd('Total Execution');
 
     console.log(sum);
+    console.log(infiniteSet);
 
 
     function checkOutOfBounds(coords){
