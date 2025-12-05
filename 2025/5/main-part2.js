@@ -27,7 +27,7 @@ fs.readFile('input.txt', (err, data) => {
 
     //main flow
     for(let [rangeStart, rangeEnd] of rangesSet){
-        for([processedMin, processedMax] of processedRanges){
+        for(let [processedMin, processedMax] of processedRanges){
             //check for collision between ranges
             if(rangeStart >= processedMin && rangeStart <= processedMax){
                 rangeStart = processedMax + 1;
